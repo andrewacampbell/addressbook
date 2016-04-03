@@ -1,12 +1,32 @@
-<?php include('includes/header.php'); ?>
+<?php
+session_start();
+include('includes/functions.php');
+include('includes/connection.php';)
     
+    if(isset($_POST['login'])) {
+        
+        $userEmail    = $POST['email'];
+        $userPassword = $POST['password'];
+        
+    }
+    
+include('includes/header.php'); 
+
+?>
+    <br>
+    <br>
+    <br>
+     <br>
+     <br>
+     <br>
+     <br>
       <form class="form-signin" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'] ); ?>" 
        method="post">
        
         <h2 class="form-signin-heading">Please sign in</h2>
         
-        <label for="input-username" class="sr-only">User Name</label>
-        <input type="text"  class="form-control" placeholder="User Name" autofocus id="login-username" name="username">
+        <label for="input-email" class="sr-only">Email</label>
+        <input type="email"  class="form-control" placeholder="Email" autofocus id="login-email" name="email">
         
         <label for="input-password" class="sr-only">Password</label>
         <input type="password"  class="form-control" placeholder="Password" autofocus id="login-password" name="password">
