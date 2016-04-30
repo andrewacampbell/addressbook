@@ -7,7 +7,7 @@
  */
 function validateFormData($formEntry) {
     $formEntry = trim(stripslashes(htmlspecialchars(strip_tags(str_replace(array(
-    '(',')'), $formEntry)), ENT_QUOTES )));
+    '(',')'),'', $formEntry)), ENT_QUOTES )));
     
     return $formEntry;
 }

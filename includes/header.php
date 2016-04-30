@@ -1,3 +1,7 @@
+<?php 
+
+    //$logginUser = isset($_SESSION['logginUser']) ? $_SESSION['logginUser'] : '';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +17,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
@@ -39,13 +42,29 @@
           </button>
           <a class="navbar-brand" href="#">Contact Manager</a>
         </div>
+        
         <div id="navbar" class="navbar-collapse collapse">
-          
+         <?php 
+            if($_SESSION['loggedInUser']) {   
+         ?>
+          <ul class="nav navbar-nav">
+              <li><a href="clients.php">My Contacts</a></li>
+              <li><a href="add.php">Add Contact</a></li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
          
-            <li><a href="../navbar-static-top/">Your name</a></li>
-            <li class="active"><a href="./">Login <span class="sr-only">(current)</span></a></li>
-          </ul>
+            <li><a href="../navbar-static-top/">Hello <?php echo $_SESSION['loggedInUser']; ?> </a></li>
+                <a href="logout.php">Log out </a></li>
+            </ul>
+            <?php 
+                } else { 
+            ?>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="index.php">Log in <span class="sr-only">(current)</span></a></li>
+            </ul>
+            <?php
+            }
+            ?>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
